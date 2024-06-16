@@ -16,7 +16,7 @@ public class Bartender {
         String drinkChoice = promptForDrinkChoice();
         makeDrink();
         updateTab();
-        collectRating();
+        // collectRating(); * nice to have
         anotherDrink = askIfTheyWantAnotherDrink(); // update anotherDrink
       }
       closeTab();
@@ -35,6 +35,36 @@ public class Bartender {
       }
       return another;
     }*/
+
+  // MEMBER-LEVEL NAMED INNER CLASS
+  private class Tab {
+    // static properties & methods
+    private static final int MAX_DRINKS = 3;
+
+    // properties
+    private int currentDrinkCount;
+    private Double tabTotal;
+
+    // constructors
+    public Tab() {
+
+    }
+
+    // business methods
+    private void updateTab(Double drinkPrice) {
+      // add price to total
+      // increment currentDrinkCount
+    }
+
+    // accessor methods
+    public int getCurrentDrinkCount() {
+      return currentDrinkCount;
+    }
+
+    public Double getTabTotal() {
+      return tabTotal;
+    }
+  }
 
 
 
