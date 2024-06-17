@@ -1,5 +1,6 @@
 package com.rumprogram.bartender;
 
+import com.apps.util.Prompter;
 import com.rumprogram.Drink;
 import com.rumprogram.Tab;
 import com.rumprogram.Menu;
@@ -14,6 +15,8 @@ import java.util.Collection;
 import java.util.Scanner;
 import java.util.Timer;
 
+import static com.apps.util.Console.clear;
+
 public class Bartender {
 
   // static
@@ -24,37 +27,22 @@ public class Bartender {
   private static final String SCREEN4 = "data/loadingScreen/screen4.txt";
 
   private final Menu menu = new Menu();
-  private final Scanner scanner = new Scanner(System.in);
+  private final Prompter prompter = new Prompter(new Scanner(System.in));
   private final Tab tab = new Tab();
 
   public void execute() {
     welcome();
     boolean anotherDrink = true;
 
-/*    while (anotherDrink) {
+    while (anotherDrink) {
       offerMenu();
-      String drinkChoice = promptForDrinkChoice();
+      Drink drinkChoice = promptForDrinkChoice();
       makeDrink(drinkChoice);
-      updateTab();
-      // collectRating(); * nice to have
-      anotherDrink = askIfTheyWantAnotherDrink(); // update anotherDrink
+      tab.updateTab(drinkChoice);
+      anotherDrink = askIfTheyWantAnotherDrink(tab);
     }
-    closeTab();*/
+    closeTab();
   }
-
-/*    private boolean askIfTheyWantAnotherDrink() {
-      boolean another;
-      if (max > MAX) {
-        another = false;
-      }
-      else if (they say yes) {
-        another = true;
-      }
-      else {
-        another = false;
-      }
-      return another;
-    }*/
 
   private void welcome() {
     try {
@@ -63,6 +51,24 @@ public class Bartender {
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  private void offerMenu() {
+    menu.readMenu();
+  }
+
+  private Drink promptForDrinkChoice() {
+    Drink drinkChoice = null;
+
+    String input = prompter.prompt("Which drink would you like? Please tell me the name: ");
+
+      for (Drink drink : Menu.drinkMenu) {
+        if (drink.getName().equalsIgnoreCase(input.trim())) {
+          drinkChoice = drink;
+          break;
+        }
+      }
+    return drinkChoice;
   }
 
   private void makeDrink(Drink drinkChoice) {
@@ -85,17 +91,40 @@ public class Bartender {
       for (String loadingScreen : loadingScreens) {
         try {
           System.out.println(loadingScreen);
-          Thread.sleep(2000);
+          Thread.sleep(3000);
         } catch (InterruptedException e) {
           e.printStackTrace();
         }
       }
 
+      clear();
       System.out.printf("Voilà! Enjoy your %s", drinkChoice.getName());
 
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  private boolean askIfTheyWantAnotherDrink(Tab tab) {
+    boolean another;
+
+    if (tab.getCurrentDrinkCount() == Tab.MAX_DRINKS) {
+      another = false;
+    } else {
+      String input = prompter.prompt("Would you like another drink? [Y/N]  ");
+      if (input.equalsIgnoreCase("Y")) {
+        another = true;
+      } else {
+        another = false;
+      }
+    }
+    return another;
+  }
+
+  private void closeTab() {
+
+    System.out.println("Thank you for visiting Rum Program! Here is the check.\n");
+    System.out.println(tab);
   }
 
 }
