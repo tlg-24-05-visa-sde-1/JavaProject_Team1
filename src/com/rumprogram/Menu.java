@@ -8,6 +8,8 @@ public class Menu {
   // properties
   private final Collection<Drink> drinkMenu = new ArrayList<Drink>();
 
+
+
   // constructors
 
   // business methods
@@ -17,5 +19,9 @@ public class Menu {
   // findMocktails()
 
   // accessor methods
+
+
+
+
 
 }
