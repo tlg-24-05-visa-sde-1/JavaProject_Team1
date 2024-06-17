@@ -6,6 +6,7 @@ public class Bartender {
 
     private final Menu menu;
     private final Scanner scanner = new Scanner(System.in);
+    private final Tab tab = new Tab();
 
     public void execute() {
       welcome();
