@@ -1,0 +1,60 @@
+1,Amaretto Sour,8,TRUE,3
+2,Aperol Spritz,10,TRUE,3
+3,Apple Mint Spritzer,5.5,FALSE,2
+4,Arnold Palmer,5,TRUE,4
+5,Aviation,12,FALSE,5
+6,Bellini,9,FALSE,2
+7,Berry Lemonade,5,TRUE,4
+8,Black Russian,8.5,FALSE,2.5
+9,Bloody Mary,9.5,FALSE,4
+10,Blue Lagoon Mocktail,5,TRUE,1
+11,Brandy Alexander,9,FALSE,3
+12,Caipirinha,9,FALSE,4
+13,Clover Club,10,FALSE,3.5
+14,Cosmopolitan,11,FALSE,5
+15,Cucumber Cooler,5,TRUE,2
+16,Daiquiri,8,FALSE,1
+17,Dark 'n' Stormy,8,FALSE,1
+18,Espresso Martini,12,FALSE,4
+19,Faux Sangria,5,TRUE,4
+20,French 75,12,FALSE,2.5
+21,Fruit Punch,4.3,TRUE,2.5
+22,Gimlet,8,FALSE,5
+23,Grapefruit Mint Spritz,5,TRUE,4
+24,Irish Coffee,8,FALSE,4.5
+25,Kir Royale,12,FALSE,5
+26,Lemonade,3,TRUE,3
+27,Long Island Iced Tea,12.5,FALSE,3
+28,Mai Tai,10,FALSE,3
+29,Mango Lassi,5,TRUE,3
+30,Manhattan,12,FALSE,2
+31,Margarita,8.3,FALSE,2
+32,Martini,10,FALSE,2
+33,Mint Julep,9,FALSE,1
+34,Mojito,8.5,FALSE,1
+35,Moscow Mule,8,FALSE,1
+36,Negroni,10,TRUE,3.5
+37,Nojito,5,TRUE,4
+38,Old Fashioned,10,FALSE,4
+39,Paloma,8,FALSE,4
+40,Peach Bellini Mocktail,5.8,TRUE,5
+41,Pina Colada,9,FALSE,5
+42,Pineapple Gingerale,4,TRUE,5
+43,Pisco Sour,10,FALSE,2
+44,Rum Punch,10,FALSE,2
+45,Sazerac,12.8,FALSE,5
+46,Shirley Temple,4,TRUE,1
+47,Sidecar,10,FALSE,3
+48,Singapore Sling,12,FALSE,2
+49,Tequila Sunrise,8,FALSE,1
+50,Tom Collins,8,FALSE,4
+51,Tropical Fizz,5,TRUE,2
+52,Vesper,12,FALSE,3
+53,Virgin Margarita,5,TRUE,2
+54,Virgin Mary,5,TRUE,1
+55,Virgin Mojito,5,TRUE,3.5
+56,Virgin Piña Colada,5,TRUE,3
+57,Virgin Strawberry Daiquiri,5,TRUE,1.5
+58,Watermelon Agua Fresca,4,TRUE,4
+59,Whiskey Sour,8,FALSE,5
+60,White Russian,8,FALSE,2
