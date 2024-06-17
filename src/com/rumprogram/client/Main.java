@@ -7,9 +7,10 @@ class Main {
 
   public static void main(String[] args){
     // instantiate controller and say "go"
-    Bartender bartender = new Bartender();
-    bartender.execute();
+//    Bartender bartender = new Bartender();
+//    bartender.execute();
 
-
+      Menu menu = new Menu();
+      menu.sortByPriceHighestToLowest();
   }
 }
