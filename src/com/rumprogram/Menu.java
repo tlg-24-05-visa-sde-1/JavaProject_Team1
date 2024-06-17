@@ -1,8 +1,9 @@
 package com.rumprogram;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
-class Menu {
+public class Menu {
 
   // properties
   private final Collection<Drink> drinkMenu = new ArrayList<Drink>();

@@ -1,6 +1,6 @@
 package com.rumprogram;
 
-class Tab {
+public class Tab {
   // static properties & methods
   private static final int MAX_DRINKS = 3;
 

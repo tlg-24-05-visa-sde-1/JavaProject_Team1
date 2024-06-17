@@ -1,6 +1,6 @@
 package com.rumprogram;
 
-class Drink implements Comparable<Drink> {
+public class Drink implements Comparable<Drink> {
 
     // properties
     private final String name;
