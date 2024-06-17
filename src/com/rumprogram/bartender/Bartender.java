@@ -1,5 +1,6 @@
 package com.rumprogram.bartender;
 
+import com.rumprogram.Drink;
 import com.rumprogram.Tab;
 import com.rumprogram.Menu;
 
@@ -26,7 +27,7 @@ public class Bartender {
 /*    while (anotherDrink) {
       offerMenu();
       String drinkChoice = promptForDrinkChoice();
-      makeDrink();
+      makeDrink(drinkChoice);
       updateTab();
       // collectRating(); * nice to have
       anotherDrink = askIfTheyWantAnotherDrink(); // update anotherDrink
@@ -49,7 +50,15 @@ public class Bartender {
     }*/
 
   private void welcome() {
+    try {
+      String welcomeData = Files.readString(Path.of("data/welcome.txt"));
+      System.out.println(welcomeData);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
 
+  private void makeDrink(Drink drinkChoice) {
     try {
       String welcomeData = Files.readString(Path.of("data/welcome.txt"));
       System.out.println(welcomeData);
