@@ -4,7 +4,7 @@ import java.util.Collection;
 
 public class Tab {
   // static properties & methods
-  private static final int MAX_DRINKS = 3;
+  public static final int MAX_DRINKS = 3;
 
   // properties
   private int currentDrinkCount;
@@ -12,7 +12,7 @@ public class Tab {
   private Collection<Drink> drinksOrdered;
 
   // business methods
-  private void updateTab(Drink drinkOrdered) {
+  public void updateTab(Drink drinkOrdered) {
     tabTotal += drinkOrdered.getPrice();
     drinksOrdered.add(drinkOrdered);
     currentDrinkCount++;
