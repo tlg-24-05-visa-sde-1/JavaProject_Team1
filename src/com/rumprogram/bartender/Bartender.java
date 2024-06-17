@@ -1,5 +1,7 @@
 package com.rumprogram.bartender;
 
+import com.rumprogram.Tab;
+
 import java.util.Scanner;
 
 public class Bartender {

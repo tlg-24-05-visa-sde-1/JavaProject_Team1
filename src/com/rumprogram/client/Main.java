@@ -6,7 +6,7 @@ class Main {
 
   public static void main(String[] args){
     // instantiate controller and say "go"
-    BarGuest guest = new BarGuest();
-    guest.execute();
+    Bartender bartender = new Bartender();
+    bartender.execute();
   }
 }
