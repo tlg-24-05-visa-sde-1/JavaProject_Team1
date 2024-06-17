@@ -1,4 +1,4 @@
-package com.rumprogram.bartender;
+package com.rumprogram;
 
 class Tab {
   // static properties & methods
