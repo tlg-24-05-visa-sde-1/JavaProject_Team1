@@ -1,6 +1,7 @@
 package com.rumprogram;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.nio.file.Files;
@@ -29,13 +30,13 @@ public class Menu {
 
   // accessor methods
   public static void showMenu () {
-      Scanner sc = new Scanner("data/drink-data.csv");
-      sc.useDelimiter(",");
-      while (sc.hasNext()){
 
+      try {
+          String welcomeData = Files.readString(Path.of(DRINK_MENU));
+          System.out.println(welcomeData);
+      } catch (IOException e) {
+          e.printStackTrace();
       }
-      System.out.println(sc.hasNext());
-      sc.close();
   }
 
 
