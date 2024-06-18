@@ -5,7 +5,7 @@ public class Drink implements Comparable<Drink> {
     // properties
     private  int id;
     private final String name;
-    private final Double price;
+    private final double price;
     private boolean nonAlcoholic;
     private final double rating;
 
