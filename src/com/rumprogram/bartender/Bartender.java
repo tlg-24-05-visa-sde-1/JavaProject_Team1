@@ -32,44 +32,34 @@ public class Bartender {
 
   public void execute() {
     welcome();
-  /*  boolean anotherDrink = true;
+    boolean anotherDrink = true;
 
     while (anotherDrink) {
-      offerMenu();
-      Drink drinkChoice = promptForDrinkChoice();
+      Drink drinkChoice = offerMenu();
       makeDrink(drinkChoice);
       tab.updateTab(drinkChoice);
       anotherDrink = askIfTheyWantAnotherDrink(tab);
     }
-    closeTab();*/
+    closeTab();
   }
 
   private void welcome() {
     try {
       String welcomeData = Files.readString(Path.of(WELCOME_DATA));
       System.out.println(welcomeData);
+      try {
+        Thread.sleep(5000);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
     } catch (IOException e) {
       e.printStackTrace();
     }
   }
 
-  private void offerMenu() {
-    menu.readMenu();
+  private Drink offerMenu() {
+    return menu.readMenu();
   }
-
- /* private Drink promptForDrinkChoice() {
-    Drink drinkChoice = null;
-
-    String input = prompter.prompt("Which drink would you like? Please tell me the name: ");
-
-      for (Drink drink : Menu.drinkMenu) {
-        if (drink.getName().equalsIgnoreCase(input.trim())) {
-          drinkChoice = drink;
-          break;
-        }
-      }
-    return drinkChoice;
-  }*/
 
   private void makeDrink(Drink drinkChoice) {
     Collection<String> loadingScreens = new ArrayList<>();
@@ -82,23 +72,25 @@ public class Bartender {
       String screen4 = Files.readString(Path.of(SCREEN4));
 
       // add loading screens to collection
-      loadingScreens.add(SCREEN1);
-      loadingScreens.add(SCREEN2);
-      loadingScreens.add(SCREEN3);
-      loadingScreens.add(SCREEN4);
+      loadingScreens.add(screen1);
+      loadingScreens.add(screen2);
+      loadingScreens.add(screen3);
+      loadingScreens.add(screen4);
 
       // generate loading screen
+      clear();
       for (String loadingScreen : loadingScreens) {
         try {
           System.out.println(loadingScreen);
-          Thread.sleep(3000);
+          Thread.sleep(1500);
+          clear();
         } catch (InterruptedException e) {
           e.printStackTrace();
         }
       }
 
       clear();
-      System.out.printf("Voilà! Enjoy your %s", drinkChoice.getName());
+      System.out.printf("Voilà! Enjoy your %s\n", drinkChoice.getName());
 
     } catch (IOException e) {
       e.printStackTrace();
@@ -111,7 +103,7 @@ public class Bartender {
     if (tab.getCurrentDrinkCount() == Tab.MAX_DRINKS) {
       another = false;
     } else {
-      String input = prompter.prompt("Would you like another drink? [Y/N]  ");
+      String input = prompter.prompt("\nWould you like another drink? [Y/N]  ");
       if (input.equalsIgnoreCase("Y")) {
         another = true;
       } else {

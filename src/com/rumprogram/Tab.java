@@ -1,5 +1,6 @@
 package com.rumprogram;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class Tab {
@@ -9,7 +10,7 @@ public class Tab {
   // properties
   private int currentDrinkCount;
   private double tabTotal;
-  private Collection<Drink> drinksOrdered;
+  private Collection<Drink> drinksOrdered = new ArrayList<>();
 
   // business methods
   public void updateTab(Drink drinkOrdered) {
