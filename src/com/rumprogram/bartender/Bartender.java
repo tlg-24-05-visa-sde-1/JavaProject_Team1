@@ -40,6 +40,7 @@ public class Bartender {
       tab.updateTab(drinkChoice);
       anotherDrink = askIfTheyWantAnotherDrink(tab);
     }
+    clear();
     closeTab();
   }
 
@@ -90,8 +91,13 @@ public class Bartender {
       }
 
       clear();
-      System.out.printf("Voilà! Enjoy your %s\n", drinkChoice.getName());
 
+      System.out.printf("Voilà! Enjoy your %s\n", drinkChoice.getName());
+      try {
+        Thread.sleep(2000);
+      } catch (InterruptedException e) {
+        throw new RuntimeException(e);
+      }
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -102,6 +108,12 @@ public class Bartender {
 
     if (tab.getCurrentDrinkCount() == Tab.MAX_DRINKS) {
       another = false;
+      System.out.println("You've hit the maximum amount! Come back and see us tomorrow.");
+      try {
+        Thread.sleep(2500);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
     } else {
       String input = prompter.prompt("\nWould you like another drink? [Y/N]  ");
       if (input.equalsIgnoreCase("Y")) {
@@ -115,7 +127,7 @@ public class Bartender {
 
   private void closeTab() {
 
-    System.out.println("Thank you for visiting Rum Program! Here is the check.\n");
+    System.out.println("\n\nThank you for visiting Rum Program! Here is the check.\n");
     System.out.println(tab);
   }
 
