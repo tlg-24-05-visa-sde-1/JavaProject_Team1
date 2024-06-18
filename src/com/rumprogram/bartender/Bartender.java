@@ -32,7 +32,7 @@ public class Bartender {
 
   public void execute() {
     welcome();
-    boolean anotherDrink = true;
+  /*  boolean anotherDrink = true;
 
     while (anotherDrink) {
       offerMenu();
@@ -41,7 +41,7 @@ public class Bartender {
       tab.updateTab(drinkChoice);
       anotherDrink = askIfTheyWantAnotherDrink(tab);
     }
-    closeTab();
+    closeTab();*/
   }
 
   private void welcome() {
@@ -57,7 +57,7 @@ public class Bartender {
     menu.readMenu();
   }
 
-  private Drink promptForDrinkChoice() {
+ /* private Drink promptForDrinkChoice() {
     Drink drinkChoice = null;
 
     String input = prompter.prompt("Which drink would you like? Please tell me the name: ");
@@ -69,7 +69,7 @@ public class Bartender {
         }
       }
     return drinkChoice;
-  }
+  }*/
 
   private void makeDrink(Drink drinkChoice) {
     Collection<String> loadingScreens = new ArrayList<>();
