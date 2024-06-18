@@ -1,6 +1,7 @@
 package com.rumprogram;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 public class Tab {
@@ -10,7 +11,7 @@ public class Tab {
   // properties
   private int currentDrinkCount;
   private double tabTotal;
-  private Collection<Drink> drinksOrdered = new ArrayList<>();
+  private static Collection<Drink> drinksOrdered = new ArrayList<>();
 
   // business methods
   public void updateTab(Drink drinkOrdered) {
@@ -32,10 +33,19 @@ public class Tab {
     return drinksOrdered;
   }
 
+  private static String itemizeDrinks() {
+    String drinkReceipt = "";
+
+    for (Drink drink : drinksOrdered) {
+      drinkReceipt += String.format("%s  $%,.2f", drink.getName(), drink.getPrice());
+    }
+    return drinkReceipt;
+  }
+
   // toString()
   @Override
   public String toString() {
-    return String.format("%s: currentDrinkCount=%s, drinksOrdered=%s, tabTotal=%,.2f",
-      getClass().getSimpleName(), getCurrentDrinkCount(), getDrinksOrdered(), getTabTotal());
+    return String.format("%s: currentDrinkCount=%s\n\n drinksOrdered=%s\n\n tabTotal=%,.2f",
+      getClass().getSimpleName(), getCurrentDrinkCount(), itemizeDrinks(), getTabTotal());
   }
 }

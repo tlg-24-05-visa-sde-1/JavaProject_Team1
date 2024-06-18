@@ -25,6 +25,8 @@ public class Menu {
     Drink drink = null;
     boolean keepReading = true;
 
+    clear();
+
     // Show menu sorted by rating.
     System.out.println("\nHere you go!\nOur menu is automatically sorted by name.\n");
 
@@ -75,7 +77,7 @@ public class Menu {
 
   public static List<Drink> sortByPriceLowestToHighest() {
     List<Drink> drinks = drinkMenu.stream()
-      .sorted(comparing(Drink::getPrice).reversed())
+      .sorted(comparing(Drink::getPrice))
       .toList();
 
     return drinks;
