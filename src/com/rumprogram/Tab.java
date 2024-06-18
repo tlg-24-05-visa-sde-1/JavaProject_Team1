@@ -45,7 +45,7 @@ public class Tab {
   // toString()
   @Override
   public String toString() {
-    return String.format("%s: currentDrinkCount=%s\n\n drinksOrdered=%s\n\n tabTotal=%,.2f",
+    return String.format("%s\n-------\n\nDrinks Ordered: %s\n\n%s\n\nTotal: $%,.2f",
       getClass().getSimpleName(), getCurrentDrinkCount(), itemizeDrinks(), getTabTotal());
   }
 }
