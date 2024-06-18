@@ -108,14 +108,14 @@ public class Bartender {
 
     if (tab.getCurrentDrinkCount() == Tab.MAX_DRINKS) {
       another = false;
-      System.out.println("You've hit the maximum amount! Come back and see us tomorrow.");
+      System.out.println("\u001B[1;31m You've hit the maximum amount! Come back and see us tomorrow.\u001B[0m");
       try {
         Thread.sleep(2500);
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
     } else {
-      String input = prompter.prompt("\nWould you like another drink? [Y/N]  ");
+      String input = prompter.prompt("\n \u001B[1;32m Would you like another drink? [Y/N] \u001B[0m");
       if (input.equalsIgnoreCase("Y")) {
         another = true;
       } else {
