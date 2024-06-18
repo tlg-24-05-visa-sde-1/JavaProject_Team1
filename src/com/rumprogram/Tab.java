@@ -37,7 +37,7 @@ public class Tab {
     String drinkReceipt = "";
 
     for (Drink drink : drinksOrdered) {
-      drinkReceipt += String.format("%s  $%,.2f", drink.getName(), drink.getPrice());
+      drinkReceipt += String.format("%-10s $%,.2f\n", drink.getName(), drink.getPrice());
     }
     return drinkReceipt;
   }
@@ -45,7 +45,7 @@ public class Tab {
   // toString()
   @Override
   public String toString() {
-    return String.format("%s\n-------\n\nDrinks Ordered: %s\n\n%s\n\nTotal: $%,.2f",
+    return String.format("%s\n----------------------\n\nDrinks Ordered: %s\n\n%s\n\nTotal: $%,.2f\n----------------------",
       getClass().getSimpleName(), getCurrentDrinkCount(), itemizeDrinks(), getTabTotal());
   }
 }
