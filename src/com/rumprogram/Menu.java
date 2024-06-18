@@ -100,7 +100,17 @@ public class Menu {
   }
 
   private static void dump(Collection<?> collection) {
-    collection.forEach(System.out::println);
+
+//    collection.forEach(System.out::println);
+    System.out.println("+-------------------------------+-------+-------------+");
+    System.out.println("| Name                          | Price |  Rating |");
+    System.out.println("+-------------------------------+-------+--------------+");
+    int index = 1;
+
+    for(Object drink: collection){
+      System.out.printf("| %3d %s%n", index++, drink.toString());
+    }
+
   }
 
   private void setMenu() {

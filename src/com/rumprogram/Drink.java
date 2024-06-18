@@ -62,11 +62,6 @@ public class Drink implements Comparable<Drink> {
 
     @Override
     public String toString() {
-        return "Drink" +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", nonAlcoholic=" + nonAlcoholic +
-                ", rating=" + rating +
-                '}';
+        return String.format("| %-25s | $%6.2f | %-4.1f |", name, price, rating);
     }
 }
