@@ -10,7 +10,5 @@ class Main {
     // instantiate controller and say "go"
     Bartender bartender = new Bartender();
     bartender.execute();
-
-
   }
 }
