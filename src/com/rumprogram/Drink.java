@@ -3,18 +3,27 @@ package com.rumprogram;
 public class Drink implements Comparable<Drink> {
 
     // properties
-    private final int id;
+    private  int id;
     private final String name;
     private final Double price;
-    private final boolean nonAlcoholic;
-    private final int rating;
+    private boolean nonAlcoholic;
+    private final double rating;
+
+    public Drink(String name, Double price, Double rating) {
+        this.name =name;
+        this.price = price;
+        this.rating =rating;
+    }
 
 
+    public Drink(String name,double rating, Double price, boolean nonAlcoholic) {
+        this.name = name;
+        this.price = price;
+        this.rating = rating;
+        this.nonAlcoholic = nonAlcoholic;
+    }
 
-
-
-
-    public Drink(int id, String name,Double price, boolean nonAlcoholic,int rating) {
+    public Drink(int id, String name, Double price, boolean nonAlcoholic, double rating) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -24,9 +33,10 @@ public class Drink implements Comparable<Drink> {
 
 
 
+
     @Override
     public int compareTo(Drink otherDrink) {
-     return Integer.compare(this.getRating(), otherDrink.getRating());
+     return Double.compare(this.getRating(), otherDrink.getRating());
 
     }
 
@@ -46,7 +56,17 @@ public class Drink implements Comparable<Drink> {
       return id;
     }
 
-    public int getRating() {
+    public double getRating() {
         return rating;
+    }
+
+    @Override
+    public String toString() {
+        return "Drink" +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", nonAlcoholic=" + nonAlcoholic +
+                ", rating=" + rating +
+                '}';
     }
 }
