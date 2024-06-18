@@ -47,7 +47,7 @@ public class Menu {
            3 = Only show mocktail options
            4 = I'm ready to order!""");
 
-      String input = prompter.prompt("Please type the number of your selection: ");
+      String input = prompter.prompt("\nPlease type the number of your selection: ");
 
       clear();
 
