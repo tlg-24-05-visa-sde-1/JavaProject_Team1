@@ -62,6 +62,6 @@ public class Drink implements Comparable<Drink> {
 
     @Override
     public String toString() {
-        return String.format("| %-25s | $%6.2f | %-4.1f |", name, price, rating);
+        return String.format("| %-25s | $%-6.2f | %-7.1f |", name, price, rating);
     }
 }
