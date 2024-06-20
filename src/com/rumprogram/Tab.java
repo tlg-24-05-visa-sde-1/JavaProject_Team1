@@ -17,6 +17,10 @@ public class Tab {
   public void updateTab(Drink drinkOrdered) {
     tabTotal += drinkOrdered.getPrice();
     drinksOrdered.add(drinkOrdered);
+    updateCurrentDrinkCount();
+  }
+
+  public void updateCurrentDrinkCount() {
     currentDrinkCount++;
   }
 
