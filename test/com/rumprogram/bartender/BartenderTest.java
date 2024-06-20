@@ -1,6 +1,5 @@
 package com.rumprogram.bartender;
 
-import com.rumprogram.Tab;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -16,7 +15,7 @@ public class BartenderTest {
 
     @Test
     public void askIfTheyWantAnotherDrink_shouldReturnFalse_ifMaxDrinksAlreadyReached() {
-        // set currentDrinkCount
+        // set currentDrinkCount to max
         bartender.tab.updateCurrentDrinkCount();
         bartender.tab.updateCurrentDrinkCount();
         bartender.tab.updateCurrentDrinkCount();
@@ -25,19 +24,16 @@ public class BartenderTest {
 
     @Test
     public void askIfTheyWantAnotherDrink_shouldReturnTrue_ifMaxDrinksNotReachedAndValidYes() {
-        // set currentDrinkCount
         assertEquals(true, bartender.askIfTheyWantAnotherDrink(bartender.tab));
     }
 
     @Test
     public void askIfTheyWantAnotherDrink_shouldReturnFalse_ifMaxDrinksNotReachedAndValidNo() {
-        // set currentDrinkCount
         assertEquals(false, bartender.askIfTheyWantAnotherDrink(bartender.tab));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void askIfTheyWantAnotherDrink_shouldThrowIllegalArgumentException_ifMaxDrinksNotReachedAndInvalidResponse() {
-        // set currentDrinkCount
         bartender.askIfTheyWantAnotherDrink(bartender.tab);
     }
 }

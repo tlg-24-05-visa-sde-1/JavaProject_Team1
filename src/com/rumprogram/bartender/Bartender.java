@@ -94,7 +94,7 @@ public class Bartender {
 
       System.out.printf("Voilà! Enjoy your %s\n", drinkChoice.getName());
       try {
-        Thread.sleep(2000);
+        Thread.sleep(1750);
       } catch (InterruptedException e) {
         throw new RuntimeException(e);
       }
@@ -103,7 +103,7 @@ public class Bartender {
     }
   }
 
-  boolean askIfTheyWantAnotherDrink(Tab tab) {
+  boolean askIfTheyWantAnotherDrink(Tab tab) throws IllegalArgumentException {
     boolean another;
 
     if (tab.getCurrentDrinkCount() == Tab.MAX_DRINKS) {
@@ -114,9 +114,15 @@ public class Bartender {
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
+
     } else {
-      String input = prompter.prompt("\n \u001B[1;32m Would you like another drink? [Y/N] \u001B[0m");
-      // String input = "1" // hardcoding test method input
+      String input = null;
+      try {
+        input = prompter.prompt("\n \u001B[1;32m Would you like another drink? [Y/N] \u001B[0m");
+        // String input = "1" // hardcoding test method input
+      } catch (IllegalArgumentException e) {
+        throw new IllegalArgumentException("Invalid response: please type 'y' for yes, or 'n' for no.");
+      }
 
       if (input.equalsIgnoreCase("Y")) {
         another = true;
