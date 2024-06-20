@@ -62,10 +62,16 @@ public class Menu {
     return drink;
   }
 
-  private static Drink promptForDrinkChoice() {
+  public static Drink promptForDrinkChoice() {
     Drink drinkChoice = null;
 
-    String input = prompter.prompt("Please type the name of the drink you would like: ");
+    String input = null;
+    try {
+      input = prompter.prompt("Please type the name of the drink you would like: ");
+//      input = "Martini";
+    } catch (IllegalArgumentException e) {
+      System.err.println("Invalid message provided  " + e.getMessage());
+    }
 
     for (Drink drink : drinkMenu) {
       if (drink.getName().equalsIgnoreCase(input.trim())) {
@@ -102,13 +108,13 @@ public class Menu {
   private static void dump(Collection<?> collection) {
 
 //    collection.forEach(System.out::println);
-    System.out.println("+-------------------------------+-------+-------------+");
-    System.out.println("| Name                          | Price |  Rating |");
-    System.out.println("+-------------------------------+-------+--------------+");
+    System.out.println("+-------------------------------+----------+---------+");
+    System.out.println("| Name                           |Price    |  Rating |");
+    System.out.println("+-------------------------------+----------+---------+");
     int index = 1;
 
     for(Object drink: collection){
-      System.out.printf("| %3d %s%n", index++, drink.toString());
+      System.out.printf("| %2d %s%n", index++, drink.toString());
     }
 
   }
