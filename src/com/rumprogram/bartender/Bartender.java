@@ -28,7 +28,7 @@ public class Bartender {
 
   private final Menu menu = new Menu();
   private final Prompter prompter = new Prompter(new Scanner(System.in));
-  private final Tab tab = new Tab();
+  final Tab tab = new Tab();
 
   public void execute() {
     welcome();

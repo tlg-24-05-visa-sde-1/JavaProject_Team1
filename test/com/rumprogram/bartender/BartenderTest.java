@@ -1,12 +1,13 @@
 package com.rumprogram.bartender;
 
-import com.rumprogram.Drink;
+import com.rumprogram.Tab;
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
 
 public class BartenderTest {
     private Bartender bartender;
-
 
     @Before
     public void setUp() {
@@ -14,19 +15,29 @@ public class BartenderTest {
     }
 
     @Test
-    public void testMakeDrink(){
-        Drink drink = new Drink(1, "Amaretto Sour", 8.00, true, 3);
-
+    public void askIfTheyWantAnotherDrink_shouldReturnFalse_ifMaxDrinksAlreadyReached() {
+        // set currentDrinkCount
+        bartender.tab.updateCurrentDrinkCount();
+        bartender.tab.updateCurrentDrinkCount();
+        bartender.tab.updateCurrentDrinkCount();
+        assertEquals(false, bartender.askIfTheyWantAnotherDrink(bartender.tab));
     }
 
     @Test
-    public void testPromptForDrinkChoice(){
-
+    public void askIfTheyWantAnotherDrink_shouldReturnTrue_ifMaxDrinksNotReachedAndValidYes() {
+        // set currentDrinkCount
+        assertEquals(true, bartender.askIfTheyWantAnotherDrink(bartender.tab));
     }
 
     @Test
-    public void testAskAnotherDrink(){
-
+    public void askIfTheyWantAnotherDrink_shouldReturnFalse_ifMaxDrinksNotReachedAndValidNo() {
+        // set currentDrinkCount
+        assertEquals(false, bartender.askIfTheyWantAnotherDrink(bartender.tab));
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void askIfTheyWantAnotherDrink_shouldThrowIllegalArgumentException_ifMaxDrinksNotReachedAndInvalidResponse() {
+        // set currentDrinkCount
+        bartender.askIfTheyWantAnotherDrink(bartender.tab);
+    }
 }
