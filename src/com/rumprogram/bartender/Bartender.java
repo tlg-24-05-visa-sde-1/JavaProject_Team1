@@ -103,7 +103,7 @@ public class Bartender {
     }
   }
 
-  private boolean askIfTheyWantAnotherDrink(Tab tab) {
+  boolean askIfTheyWantAnotherDrink(Tab tab) {
     boolean another;
 
     if (tab.getCurrentDrinkCount() == Tab.MAX_DRINKS) {
@@ -116,6 +116,8 @@ public class Bartender {
       }
     } else {
       String input = prompter.prompt("\n \u001B[1;32m Would you like another drink? [Y/N] \u001B[0m");
+      // String input = "1" // hardcoding test method input
+
       if (input.equalsIgnoreCase("Y")) {
         another = true;
       } else {
