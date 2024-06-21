@@ -42,6 +42,11 @@ public class Bartender {
     }
     clear();
     closeTab();
+    try {
+      Thread.sleep(2500);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
   }
 
   private void welcome() {
